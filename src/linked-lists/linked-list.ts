@@ -43,7 +43,15 @@ export default class LinkedList {
   }
 
   public size(): number {
-    return 0;
+    let tmp = this.head();
+    let count = 0;
+
+    while(tmp !== null) {
+      tmp = tmp.nextNode;
+      count++;
+    }
+
+    return count;
   }
 
   public at(index: number): Node {
