@@ -63,8 +63,15 @@ describe('Linked list', () => {
 
   test('contains', () => {
     // returns true if the passed in value is in the list and otherwise returns false.
-    expect(list.contains(head?.value)).toEqual(true);
+    console.log(list.head(), head);
+
+    list.append('test3');
+    list.append('test4');
+    console.log(list.head().value, head.value);
+    console.log(list.head().value === head.value);
+    expect(list.contains(head.value)).toEqual(true);
     expect(list.contains('test-contains')).toEqual(false);
+    expect(list.contains('test3')).toEqual(true);
   });
 
   test('find', () => {

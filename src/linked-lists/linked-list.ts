@@ -87,7 +87,18 @@ export default class LinkedList {
   }
 
   public contains(value: Value) : boolean {
-    return false;
+    let tmp = this.head();
+    if (tmp === null) return false;
+    if (tmp.nextNode === null) {
+      return tmp.value === value;
+    }
+
+    while (tmp.nextNode !== null) {
+      if (tmp.value === value) return true;
+      tmp = tmp.nextNode; 
+    }
+
+    return tmp.value === value;
   } 
 
   public find(value: Value): number | null {
