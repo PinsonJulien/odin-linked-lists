@@ -55,6 +55,15 @@ export default class LinkedList {
   }
 
   public at(index: number): Node {
+    let tmp = this.head();
+    let count = 0;
+
+    while(tmp !== null) {      
+      if (count === index) return tmp;
+      tmp = tmp.nextNode;
+      count++;
+    }
+
     return null;
   } 
 
