@@ -3,11 +3,11 @@ import Node from "../nodes/node";
 type Value = Node['value'];
 
 export default class LinkedList {
-  private _head: Node;
+  private _head: Node = null;
 
-  constructor(value?: Value) {
-    if (value) {
-      this._head = new Node(value);
+  constructor(head?: Node) {
+    if (head) {
+      this._head = head;
     } 
   }
 
@@ -26,11 +26,20 @@ export default class LinkedList {
   }
 
   public append(value: Value) {
-
+    const node = new Node(value);
+    if (!this.head()) this._head = node;
+    else this.head().nextNode = node;
   }
 
   public prepend(value: Value) {
+    const node = new Node(value);
+    if (!this.head()) this._head = node;
+    else {
+      const firstNode = this.head();
+      node.nextNode = firstNode;
 
+      this._head = node;
+    }
   }
 
   public size(): number {

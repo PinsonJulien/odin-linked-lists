@@ -7,7 +7,7 @@ describe('Linked list', () => {
 
   beforeEach(() => {
     head = new Node('test');
-    list = new LinkedList(test);
+    list = new LinkedList(head);
   });
 
   test('head', () => {
