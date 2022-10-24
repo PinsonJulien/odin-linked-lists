@@ -17,6 +17,7 @@ export default class LinkedList {
 
   public tail(): Node | null {
     let tmp = this.head();
+    if (tmp === null) return null;
 
     while (tmp.nextNode !== null) {
       tmp = tmp.nextNode;
@@ -68,7 +69,21 @@ export default class LinkedList {
   } 
 
   public pop() {
+    let tmp = this.head();
+    if (tmp === null) return;
+    if (tmp.nextNode === null) {
+      this._head = null;
+      return;
+    }
 
+    while(tmp.nextNode !== null) {
+      if (tmp.nextNode.nextNode === null) {
+        tmp.nextNode = null;
+        return;
+      }
+
+      tmp = tmp.nextNode;   
+    }
   }
 
   public contains(value: Value) : boolean {
