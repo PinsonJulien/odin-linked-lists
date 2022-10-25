@@ -150,7 +150,18 @@ export default class LinkedList {
     this.append(value);
   }
 
-  public removeAt(index: number) {
+  public removeAt(index: number): Node {
+    if (index === 0) {
+      const removed = this.head();
+      this._head = removed.nextNode;
 
+      return removed;
+    }
+
+    const beforeRemoved = this.at(index - 1);
+    const removed = beforeRemoved.nextNode;
+    beforeRemoved.nextNode = removed.nextNode;
+
+    return removed;
   }
 }

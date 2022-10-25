@@ -126,7 +126,7 @@ describe('Linked list', () => {
     const v2 = 'test-removeAt';
     list.append(v2);
     list.removeAt(1);
-    expect(list.tail()?.value).toEqual(head);
+    expect(list.tail()).toEqual(head);
     list.append(v2);
     list.removeAt(0);
     expect(list.tail()?.value).toEqual(v2);
