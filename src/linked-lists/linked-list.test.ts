@@ -93,10 +93,12 @@ describe('Linked list', () => {
   test('toString', () => {
     // represents the LinkedList objects as strings of this format : 
     // ( value ) -> ( value ) -> ( value ) -> null
-    expect(list.toString()).toEqual(`( ${head?.value} )`);
+    expect(list.toString()).toEqual(`( ${head.value} ) -> null`);
     const v2 = "test-string";
+    const v3 = "test3";
     list.append(v2);
-    expect(list.toString()).toEqual(`( ${head?.value} ) -> ( ${v2} )`);
+    list.append(v3);
+    expect(list.toString()).toEqual(`( ${head.value} ) -> ( ${v2} ) -> ( ${v3} ) -> null`);
   });
 
   // Bonus

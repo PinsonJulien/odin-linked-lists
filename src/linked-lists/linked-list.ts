@@ -111,7 +111,17 @@ export default class LinkedList {
   }
 
   public toString(): string {
-    return '';
+    let tmp = this.head();
+    let str = '';
+
+    while (tmp != null) {
+      str += `( ${tmp.value} ) -> `;
+      tmp = tmp.nextNode;
+    }
+
+    str += 'null';
+
+    return str;
   }
 
   public insertAt(value: Value, index: number) {
