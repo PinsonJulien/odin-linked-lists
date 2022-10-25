@@ -7,7 +7,7 @@ export default class LinkedList {
 
   constructor(head?: Node) {
     if (head) {
-      this._head = head;
+      this._head = {...head};
     } 
   }
 
@@ -125,7 +125,29 @@ export default class LinkedList {
   }
 
   public insertAt(value: Value, index: number) {
+    let tmp = this.head();
+    let count = 0;
 
+    if (tmp === null || index === 0) {
+      this._head = new Node(value);
+      this._head.nextNode = tmp;
+      return;
+    }
+
+    while (tmp !== null) {
+      if (count === index) {
+        const next = { ...tmp };
+        tmp.value = value;
+        tmp.nextNode = next;
+        return;
+      }
+
+      count++;
+      tmp = tmp.nextNode;
+    }
+
+    // If the index is bigger than the count, append it
+    this.append(value);
   }
 
   public removeAt(index: number) {

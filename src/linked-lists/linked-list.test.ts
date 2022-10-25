@@ -107,15 +107,18 @@ describe('Linked list', () => {
     const v2 = "test-2";
     list.insertAt(v2, 0);
     // v2 -> head
-    expect(list.head()?.value).toEqual(v2);
-    expect(list.tail()?.value).toEqual(head);
-
+    expect(list.head().value).toEqual(v2);
+    expect(list.tail().value).toEqual(head.value);
     const v3 = "test-3";
     list.insertAt(v3, 1);
     // v2 -> v3 -> head
-    expect(list.head()?.value).toEqual(v2);
-    expect(list.at(1)?.value).toEqual(v3);
-    expect(list.tail()?.value).toEqual(head);
+    expect(list.at(0).value).toEqual(v2);
+    expect(list.at(1).value).toEqual(v3);
+    expect(list.tail().value).toEqual(head.value);
+
+    const v4 = "test-4";
+    list.insertAt(v4, 999);
+    expect(list.tail().value).toEqual(v4);
   });
 
   test('removeAt', () => {
