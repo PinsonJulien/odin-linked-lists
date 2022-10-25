@@ -2,8 +2,8 @@ import Node from "../nodes/node";
 import LinkedList from "./linked-list";
 
 describe('Linked list', () => {
-  let head;
-  let list;
+  let head: Node;
+  let list: LinkedList;
 
   beforeEach(() => {
     head = new Node('test');
@@ -27,7 +27,11 @@ describe('Linked list', () => {
     // Adds a new node containing a value at the end of the list
     const value = "test-append";
     list.append(value);
-    expect(list.tail()?.value).toEqual(value);
+    expect(list.tail().value).toEqual(value);
+    const v2 = "test2";
+    list.append(v2);
+    expect(list.at(1).value).toEqual(value);
+    expect(list.tail().value).toEqual(v2);
   });
 
   test('prepend', () => {
@@ -63,20 +67,20 @@ describe('Linked list', () => {
 
   test('contains', () => {
     // returns true if the passed in value is in the list and otherwise returns false.
-    console.log(list.head(), head);
+    const v2 = 'test2';
+    const v3 = 'test3'; 
 
-    list.append('test3');
-    list.append('test4');
-    console.log(list.head().value, head.value);
-    console.log(list.head().value === head.value);
+    list.append(v2);
+    list.append(v3);
     expect(list.contains(head.value)).toEqual(true);
     expect(list.contains('test-contains')).toEqual(false);
-    expect(list.contains('test3')).toEqual(true);
+    expect(list.contains(v2)).toEqual(true);
+    expect(list.contains(v3)).toEqual(true);
   });
 
   test('find', () => {
     //  returns the index of the node containing value, or null if not found.
-    expect(list.find(head?.value)).toEqual(0);
+    expect(list.find(head.value)).toEqual(0);
     expect(list.find('test-find')).toEqual(null);
   });
 

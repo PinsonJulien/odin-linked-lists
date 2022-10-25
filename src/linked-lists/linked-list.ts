@@ -29,7 +29,7 @@ export default class LinkedList {
   public append(value: Value) {
     const node = new Node(value);
     if (!this.head()) this._head = node;
-    else this.head().nextNode = node;
+    else this.tail().nextNode = node;
   }
 
   public prepend(value: Value) {
@@ -88,17 +88,12 @@ export default class LinkedList {
 
   public contains(value: Value) : boolean {
     let tmp = this.head();
-    if (tmp === null) return false;
-    if (tmp.nextNode === null) {
-      return tmp.value === value;
+
+    while (tmp != null && tmp.value !== value) {
+      tmp = tmp.nextNode;
     }
 
-    while (tmp.nextNode !== null) {
-      if (tmp.value === value) return true;
-      tmp = tmp.nextNode; 
-    }
-
-    return tmp.value === value;
+    return tmp !== null;
   } 
 
   public find(value: Value): number | null {
