@@ -97,7 +97,17 @@ export default class LinkedList {
   } 
 
   public find(value: Value): number | null {
-    return 0;
+    let tmp = this.head();
+    let count = 0;
+
+    while (tmp != null) {
+      if (tmp.value === value) return count;
+
+      tmp = tmp.nextNode;
+      count++;
+    }
+
+    return null;
   }
 
   public toString(): string {

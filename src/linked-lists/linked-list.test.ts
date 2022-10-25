@@ -80,8 +80,14 @@ describe('Linked list', () => {
 
   test('find', () => {
     //  returns the index of the node containing value, or null if not found.
+    const v2 = 'test2';
+    const v3 = 'test3';
+    list.append(v2);
+    list.append(v3);
     expect(list.find(head.value)).toEqual(0);
     expect(list.find('test-find')).toEqual(null);
+    expect(list.find(v2)).toEqual(1);
+    expect(list.find(v3)).toEqual(2);
   });
 
   test('toString', () => {
