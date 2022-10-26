@@ -1,7 +1,5 @@
 # Odin - Linked lists
 
-# WORK IN PROGRESS
-
 The 14th [project](https://www.theodinproject.com/lessons/javascript-linked-lists) of The Odin Project, Javascript path.
 
 ## Try it online:
